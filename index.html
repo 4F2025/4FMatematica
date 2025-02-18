@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DARK VIKINGS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="index_favicon.ico">
+    <style>
+        body, h1 {
+            font-family: "Raleway", sans-serif;
+        }
+        body, html {
+            height: 100%;
+            background-color: #333;
+            color: #f0f0f0;
+            overflow: hidden;
+        }
+        #background-image {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            transition: opacity 1.5s ease-in-out;
+        }
+        main {
+            background-color: #1a1a1a;
+            margin-top: 100vh;
+            position: relative;
+        }
+        @keyframes pulseGlow {
+            0%, 100% {
+                text-shadow: 0 0 5px #ea280c, 0 0 10px #ea280c, 0 0 20px #ff4500;
+            }
+            50% {
+                text-shadow: 0 0 10px #ff4500, 0 0 20px #ff6347, 0 0 30px #ff7f50;
+            }
+        }
+        .neon-text {
+            color: #ea280c;
+            display: inline-block;
+            animation: pulseGlow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <img id="background-image" src="images/logo.jpg" alt="Background Image">
+
+    <div class="w3-top">
+        <div class="w3-bar" id="myNavbar">
+            <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+            <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+            <a href="Servizi.html" class="w3-bar-item w3-button">Servizi</a>
+            <a href="Contatti.html" class="w3-bar-item w3-button">Contatti</a>
+        </div>
+    </div>
+
+    <div class="w3-display-middle">
+        <h1 class="w3-xxlarge w3-animate-top w3-green w3-padding-large">4F IIS Viola Marchesini</h1>
+        <hr class="w3-border-grey" style="margin:auto;width:40%">
+        <p class="w3-large w3-center w3-animate-top w3-white w3-padding-large">Oltre i limiti</p>
+    </div>
+
+    <script>
+        const images = [
+            'images/Limite1.jpg',  
+            'images/Limite2.jpg',  
+            'images/Limite3.jpg',  
+            'images/Limite4.jpg'   
+        ];
+
+        let index = 0;
+        const backgroundImage = document.getElementById("background-image");
+
+        function changeBackground() {
+            index = (index + 1) % images.length;
+            backgroundImage.style.opacity = "0";  
+            setTimeout(() => {
+                backgroundImage.src = images[index];  
+                backgroundImage.style.opacity = "1"; 
+            }, 1500); 
+        }
+
+        setInterval(changeBackground, 15000); 
+    </script>
+
+</body>
+</html>
